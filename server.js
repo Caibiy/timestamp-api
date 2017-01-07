@@ -3,7 +3,8 @@ var path = require('path');
 var moment = require('moment');
 var app = express();
 var filePath=path.join(__dirname,'index.html');
-var reg=/^\d{8,}$/
+var reg=/^\d{8,}$/;
+var port = process.env.PORT || 3500;
 
 app.get('/',function(req,res){
 	res.sendFile(filePath,function(err){
@@ -39,6 +40,6 @@ app.get('/:datestring',function(req,res){
 	}
 });
 
-app.listen(80,function(){
-	console.log('App listening on port 80');
+app.listen(port,function(){
+	console.log('App listening on port'+port);
 });
